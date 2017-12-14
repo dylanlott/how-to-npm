@@ -1,0 +1,19 @@
+{
+  "name": "my-lib",
+  "version": "1.0.1",
+  "description": "my first javascript library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.17.1"
+  }
+}
