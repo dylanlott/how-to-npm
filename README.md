@@ -101,6 +101,8 @@ const adder = require('my-lib');
 const added = adder(1, 2);
 ```
 
+This means we want our library to be a function, so the default export of our library should be a function. 
+
 Now that we’ve defined how we want to use our library, let’s write our test for it. 
 
 3. Tests
@@ -130,9 +132,6 @@ afterEach(function () {
 
 describe('#adder', function () {
   it('should add two numbers', function (done) {
-    const added = adder(1, 2);
-    expect(added).to.equal(3);
-    expect(added).to.be.a('Number');
     done();
   });
 });
@@ -142,7 +141,7 @@ This is going to be our barebones test setup.
 
 Let’s go through this and figure out exactly what we did. 
 
-We imported our test modules and the library we’re testing (`lib`) and then we setup a beforeEach and an afterEach method. The `beforeEach` and `afterEach` methods will run before each `it` test. This is to keep our test environment completely clean between each test. 
+We imported our test module and the library we’re testing (`lib`) and then we setup a beforeEach and an afterEach method. The `beforeEach` and `afterEach` methods will run before each `it` test. This is to keep our test environment completely clean between each test. 
 
 Then, we create our `describe` block. Describe blocks are usually named to describe a class, a method, or a function. It’s kind of flexible. You can nest describe blocks inside of describe blocks. Describe blocks take two arguments: a string describing what you’re testing, and then a callback function. 
 
@@ -154,8 +153,8 @@ Now, let’s run `mocha ./test/` and see what happens.
 ```
 > $ mocha ./test/                                                                                                                                                                                                                                                                                                                                                 ⬡ 7.10.1
 
-  #tokenAPI
-    ✓ should return the price of the token
+  #adder
+    ✓ should add two numbers 
 
   1 passing (7ms)
 ```
@@ -164,20 +163,17 @@ Cool, so now we have our tests wired up, we can start actually expecting some di
 
 4. Fill our test out
 Let’s edit our test to make some actual assertions.
-We’re going to call `tokenAPI(‘BTC’)` and then in our callback function, we’re going to setup our expectations. 
+We’re going to call `adder` and set it equal to a variable, then we’re going to setup our expectations on that variable.
 
 ```
- describe('#tokenAPI', function () {
-   it('should return the price of the token', function (done) {
-     tokenAPI('BTC', function (err, price) {
-       console.log(err, price);
-       expect(err).to.be(null);
-       expect(price).to.be.a('Number');
-       expect(price).to.be.ok;
-       done();
-     });
-   });
- });
+describe('#adder', function () {
+  it('should add two numbers', function (done) {
+    const added = adder(1, 2);
+    expect(added).to.equal(3);
+    expect(added).to.be.a('Number');
+    done();
+  });
+}); 
 ```
 
 Edit our package.json `test` script to be 
