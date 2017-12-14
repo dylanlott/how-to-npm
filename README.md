@@ -290,8 +290,7 @@ Add a `README.md` file to the root of your project and this will show up on the 
 
 Include some documentation on your library, add sources, specify the license, etc...
 
-Add some badges to your README. 
-[ForTheBadge](https://forthebadge.com/)
+Add [some badges](https://forthebadge.com/) to your README, look totally pro, dress it up.
 
 # More Resources 
 
