@@ -19,7 +19,7 @@ This is important, because you should follow the UNIX principle:
 
 `Do one thing and do it well`
 
-In this example, I’m going to create a library that takes in a crypto toke and returns the asset in USD. This is a simple enough task but will touch on enough moving parts that you’ll be able to get a good grasp of unit testing and module development with it. 
+In this example, I’m going to create a very simple library that takes in two numbers and adds them. The library will be simple enough, but will touch on enough moving parts that you’ll be able to get a good grasp of unit testing and module development with it. 
 
 ## Start your library: `npm init` 
 The `init` command will initialize a new library for you. To do this, it runs you through a quick set of questions to setup the library. 
@@ -224,7 +224,32 @@ module.exports = function (num1, num2) {
 }
 ```
 > _**I said it was gonna be simple**_ 
- 
+
+# Local Development 
+
+Although I recommend test driven development, there are times when you want to test and develop a package in another project of yours. 
+
+If this is the case, `npm link` is what you're looking for. 
+
+npm link will symlink the module in question into the node_modules root of your system. Then, when you install that dependency in another project, it will use the symlinked folder rather than pulling down from the npm mirror. 
+
+Setting up an npm link is very simple. In the library you are developing on (the library you're linking) you want to run `npm link` 
+
+```
+> $ npm link                                                                                                                                                                           ⬡ 7.10.1 [±master ●]
+npm WARN my-lib@1.0.1 No repository field.
+/Users/dylanlott/.nvm/versions/node/v7.10.1/lib/node_modules/my-lib -> /Users/dylanlott/Development/my-lib
+```
+(output will not be exactly similar depending on if you're using npm, nvm, etc... but you should see the arrow linking to where you're developing the library on the right hand side, and the left will be your global installation of npm or nvm)
+
+Then, in the project that you'll be using that library in, run `npm link <library-name>` and you should see 
+
+`/Users/dylanlott/Development/testapp/node_modules/my-lib -> /Users/dylanlott/.nvm/versions/node/v7.10.1/lib/node_modules/my-lib -> /Users/dylanlott/Development/my-lib`
+
+This is showing that our `testapp`'s node_modules folder is symlinked to our global npm, which is in turn linked to our `my-lib` project. 
+
+Now that this is setup, in our `testapp` project, we can now require in `my-lib` like we normally would if you had `npm install`'d the application.
+
 # Publishing to NPM
 
 In your terminal, run `npm login`
