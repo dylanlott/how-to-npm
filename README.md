@@ -1,6 +1,7 @@
 # How To Write and Publish Your Library to NPM
+
 # What is npm and why do I need it? 
-npm is the de-facto standard package manager for Node. It ships with Node.js installations by default, and although there have been other package managers to come out (yarn and bower to name a few) npm has risen to be the standard that everyone else rallied around. 
+npm is the de-facto standard package manager for Node. It ships with Node.js installations by default, and although there have been other package managers to come out (yarn and bower to name a few) npm has risen to be the standard that everyone else rallied around.
 
 ## What will this guide achieve?
 This guide will show you how to:
@@ -225,6 +226,7 @@ module.exports = function (num1, num2) {
 > _**I said it was gonna be simple**_ 
  
 # Publishing to NPM
+
 In your terminal, run `npm login`
 
 This will ask you for your username and password. Enter those and login. 
@@ -266,18 +268,17 @@ Include some documentation on your library, add sources, specify the license, et
 Add some badges to your README. 
 [ForTheBadge](https://forthebadge.com/)
 
-# Resources 
+# More Resources 
+
+If you want a quick starter template for a library, you can fork and clone a boilerplate.
+
+This boilerplate is simple, gets the job done, and has some nice npm scripts setup for testing (Mocha), code coverage (Istanbul), and releasing packages.
 [GitHub - DavidWells/js-library-starter-kit: JavaScript library starter kit for open source projects](https://github.com/DavidWells/js-library-starter-kit)
+
+This boilerplate is more advanced, builds with Webpack, has eslint, mocha for tests, and gives you access to ES6 JavaScript features with Babel.
 
 [GitHub - krasimir/webpack-library-starter: Webpack based boilerplate for producing libraries (Input: ES6, Output: universal library)](https://github.com/krasimir/webpack-library-starter)
 
 [npm Documentation](https://docs.npmjs.com/)
 
-[axios: Test requests by stubbing – Kier Borromeo – Medium](https://medium.com/@srph/axios-easily-test-requests-f04caf49e057)
-
 Semantic versioning: [13 - Semantic versioning and npm | npm Documentation](https://docs.npmjs.com/getting-started/semantic-versioning) 
-
-
-
-
-
